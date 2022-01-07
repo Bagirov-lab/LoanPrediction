@@ -1,18 +1,17 @@
 import os
 import pandas as pd
 import dill as pickle
-from flask import Flask, jsonify, request
-
+from flask import Flask, jsonify, request, render_template
 app = Flask(__name__)
 
 @app.route('/')
 @app.route('/index')
 def home():
-    return "<h1> Hallo to the home page of the loan calucaltor API ! </h1>"
+    return render_template('home.html')
 
 @app.route('/predict', methods=['GET'])
 def apicall_info():
-    return "<h1> Supply to this url POST method in order to return API answer. </h1>"
+    return render_template('predict.html')
 
 
 @app.route('/predict', methods=['POST'])
